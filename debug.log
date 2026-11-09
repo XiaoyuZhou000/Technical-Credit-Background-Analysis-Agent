@@ -1,0 +1,8 @@
+[1108/211752.807:ERROR:gpu\ipc\client\command_buffer_proxy_impl.cc:328] GPU state invalid after WaitForGetOffsetInRange.
+[1108/211900.912:ERROR:gpu\ipc\client\command_buffer_proxy_impl.cc:328] GPU state invalid after WaitForGetOffsetInRange.
+[1108/215104.647:ERROR:gpu\ipc\client\command_buffer_proxy_impl.cc:328] GPU state invalid after WaitForGetOffsetInRange.
+[1108/215145.645:ERROR:gpu\ipc\client\command_buffer_proxy_impl.cc:328] GPU state invalid after WaitForGetOffsetInRange.
+[1108/220836.403:ERROR:gpu\ipc\client\command_buffer_proxy_impl.cc:328] GPU state invalid after WaitForGetOffsetInRange.
+[1108/223513.976:ERROR:gpu\ipc\client\command_buffer_proxy_impl.cc:328] GPU state invalid after WaitForGetOffsetInRange.
+[1108/235202.079:ERROR:gpu\ipc\client\command_buffer_proxy_impl.cc:328] GPU state invalid after WaitForGetOffsetInRange.
+[1108/235337.938:ERROR:gpu\ipc\client\command_buffer_proxy_impl.cc:328] GPU state invalid after WaitForGetOffsetInRange.
