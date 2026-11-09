@@ -31,13 +31,19 @@ download: false
 
 # Make TC analysis part of the coding workflow
 
-<p class="lede">Deliver a background agent that identifies files needing analysis, invokes the shared Technical Credit detector, and displays findings through the existing labeling interface.</p>
+<p class="lede">Deliver a background agent that reuses the shared TC detector and labeling UI, analyzes opened files asynchronously, and reuses results for unchanged files.</p>
 
-<div class="grid3" style="margin-top:28px">
+<div class="grid3" style="margin-top:18px">
   <div v-click class="card accent"><div class="number">01</div><h2>Automatic</h2><p>React to supported file activity without repeated manual commands.</p></div>
   <div v-click class="card accent"><div class="number">02</div><h2>Responsive</h2><p>Schedule asynchronous work while the developer continues editing.</p></div>
   <div v-click class="card accent"><div class="number">03</div><h2>Efficient</h2><p>Reuse valid results across VS Code sessions to reduce AI calls.</p></div>
 </div>
+
+<div class="callout roadmap-note"><strong>By project end:</strong> include selected import-based multi-file analysis and/or ADR support. Final scope will follow the Sprint 1 review.</div>
+
+<!--
+最终项目愿景不止核心后台分析：计划包含部分基于imports的多文件分析stretch goal和/或ADR支持，但不预先承诺两者全部完成。尚未拿到现有extension repo，无法查看已有ADR内容或评估扩展工作量。Sprint1结束后的presentation会根据仓库调研和Sprint1完成情况，细讲相关epic和user stories，再定后续开发范围。
+-->
 
 ---
 
@@ -89,7 +95,7 @@ download: false
 
 <div class="eyebrow">04 / High-level user stories</div>
 
-# Five epics
+# Five core epics
 
 | Epic | As a developer, I want… | Value |
 | --- | --- | --- |
@@ -204,7 +210,7 @@ class: demo-slide
 <tbody>
 <tr v-click="1"><td>Edit / Auto Save every 1s</td><td>+0</td><td>0</td><td>Debounce keeps resetting</td></tr>
 <tr v-click="2"><td>Stop editing; wait 3s</td><td>+1</td><td>1</td><td>Analyze the latest version</td></tr>
-<tr v-click="3"><td>Repeat triggers while it runs</td><td>+0</td><td>1</td><td>No duplicate active request</td></tr>
+<tr v-click="3"><td>Trigger editing while it runs</td><td>+0</td><td>1</td><td>No duplicate active request</td></tr>
 <tr v-click="4"><td>After completion, edit in cooldown</td><td>+0</td><td>1</td><td>Retain the latest pending change</td></tr>
 <tr v-click="5"><td>Cooldown ends + file quiet ≥ 3s</td><td>+1</td><td>2</td><td>Deferred change is analyzed</td></tr>
 <tr v-click="6"><td>Finish; restart; reopen unchanged</td><td>+0</td><td>2</td><td>Persistent cache hit</td></tr>
@@ -305,6 +311,13 @@ To be determined after researching existing repo
 <p>Mock detector + Auto Save / restart tests</p>
 <p>Detector integration interface contract</p>
 </div>
+<div class="card">
+<span class="tag amber">Planning after Sprint 1</span>
+<h2 style="margin-top:17px">Extend the project scope</h2>
+<p>Aim to include selected multi-file analysis and/or ADR support by project end.</p>
+<p>We do not yet have the existing repo, so we cannot review its ADR content or estimate stretch work.</p>
+<p>At the post–Sprint 1 presentation, define the related epics and user stories based on repo review and Sprint 1 completion.</p>
+</div>
 <!-- <div class="card">
 <span class="tag amber">Decision & next steps</span>
 <p><strong>Decided:</strong> no shared cache for the manual agent. Scheduler sharing remains open.</p>
@@ -317,6 +330,7 @@ To be determined after researching existing repo
 
 <!--
 最后明确当前交付是需求设计，代码原型是后续sprint交付。Manual Agent不共用缓存已由团队决定；调度服务是否共享仍待确认。性能指标需在真实接入后测量。
+项目结束时计划纳入部分stretch或ADR工作，具体选择和工作量暂不承诺。现有extension repo尚未取得，需查看其中已有ADR相关内容并估算基于imports的多文件分析工作量。Sprint1结束后根据完成度与仓库调研结果确定后续开发内容，并在下一轮presentation详细展示对应epics和US。
 -->
 
 ---

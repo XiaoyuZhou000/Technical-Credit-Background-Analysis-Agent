@@ -42,6 +42,8 @@ Prof. Gorton's reply confirms that both teams will work in the existing VS Code 
 
 Our team has decided that the Manual Agent will not share the Background Agent's cache. Whether to share the scheduling service remains open. Xiaoyu and Yezhen will confirm individual assignments soon in a private team discussion. Detailed interfaces, the 3s / 30s scheduling values, and specific build and PR procedures for the extension remain proposals.
 
+By project end, we aim to include selected stretch work in import-based multi-file analysis and/or ADR support. We do not yet have access to the existing extension repository, so its current ADR content and the effort required for stretch features have not been assessed. After Sprint 1, we will use repository review and Sprint 1 completion to determine subsequent development scope. The related epics and detailed user stories will be presented at the post–Sprint 1 presentation.
+
 ## Project files
 
 | File | Purpose |

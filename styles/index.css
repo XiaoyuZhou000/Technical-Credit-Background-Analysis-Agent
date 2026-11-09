@@ -18,6 +18,7 @@
 .tag { display: inline-block; color: #087f8c; background: #e1efea; border-radius: 5px; padding: 3px 9px; font-size: 12px; font-weight: 650; }
 .tag.amber { color: #986016; background: #fbedd5; }
 .callout { border-left: 4px solid #087f8c; background: #e5efeb; padding: 13px 18px; margin-top: 20px; font-size: 17px; }
+.roadmap-note { font-size: 15px; padding: 10px 16px; margin-top: 16px; }
 .footer { position: absolute; z-index: 20; bottom: 10px; right: 24px; color: #667782; font-size: 12px; line-height: 1; font-variant-numeric: tabular-nums; pointer-events: none; }
 .footer--dark { color: #afc5c9; }
 .slidev-layout table { font-size: 16px; width: 100%; }
