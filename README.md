@@ -1,60 +1,56 @@
 # Technical Credit Background Agent — Slidev
 
-14 张英文幻灯片（13 张主讲 + 1 张备用），含中文 presenter notes。内容依据分享聊天及补充的 E2 调度提案，保留了 confirmed / proposed / open decision 的区别。
+A 14-slide requirements presentation: 13 main slides and one appendix, with Chinese presenter notes where provided. The deck distinguishes confirmed requirements, proposed designs, and open decisions.
 
-## 启动
+## Getting started
 
-需要 Node.js >= 18；本项目固定使用兼容本机 Node 20 的 Slidev 51.8.2。
+Use Node.js 20. The project pins Slidev to version 51.8.2, which has been validated with the local Node.js 20 environment.
 
 ```powershell
 npm install
 npm run dev
 ```
 
-打开终端给出的地址。按右方向键或空格逐步展示；按 P 进入演讲者模式查看中文 notes。按 O 打开总览。
+Open the URL printed in the terminal. Press the right arrow or Space to advance through click steps, P to enter presenter mode, and O to open the slide overview.
+
+## Build and export
 
 ```powershell
 npm run build
 npm run export
 ```
 
-`dist/` 是静态构建；通过 HTTP 服务器访问，不能直接双击 index.html。PDF 不保留交互动画。
+- `dist/` contains the static website. Serve it over HTTP rather than opening `index.html` directly.
+- `tc-background-agent.pdf` is the exported presentation. PDF output does not preserve interactive animations.
 
-## 演示节奏
+## Presentation flow
 
-- Slide 2：三次点击展示 Automatic / Responsive / Efficient。
-- Slide 4：三次点击展示背景 Agent、共享 Detector、Labeling UI。
-- Slide 6：四种调度机制、最早执行时间公式，以及待调优的 3s / 30s 建议起始值。
-- Slide 7：四次点击讲述完整 storyboard。
-- Slide 9：US-06–10 的验收标准和交付顺序。
-- Slide 10：六次点击演示 Auto Save、防抖、去重、冷却及重启缓存，预期共两次调用。
-- 其他页只在扩展目标或结论处使用轻量 reveal。
+- Slide 2: three click steps reveal Automatic, Responsive, and Efficient.
+- Slide 4: the system diagram is displayed in full, without click steps.
+- Slide 6: four scheduling mechanisms, the earliest-start formula, and proposed 3s / 30s starting values for tuning.
+- Slide 7: four click steps walk through the Sprint 1 storyboard.
+- Slide 9: acceptance criteria and delivery order for US-06–10 under Epic 2.
+- Slide 10: six click steps demonstrate Auto Save, debouncing, deduplication, cooldown, and cache reuse after restart, with two expected detector calls.
 
-建议主讲约 10–12 分钟。所有 Sprint 1 功能和 call 数字均标注为计划或预期，未声称已经实现或测量。US-06–08 纳入 Sprint 1；US-09 在真实 detector 接入前完成；US-10 的配置入口留待后续 sprint。冷却期间的修改延后处理，不能丢弃。
+Allow approximately 10–12 minutes. Sprint 1 features and detector-call counts describe planned or expected behavior, not completed implementation or measured results. US-06–08 are included in Sprint 1; US-09 must be completed before real detector integration; the configuration interface for US-10 is deferred to a later sprint. Changes made during cooldown must be deferred rather than discarded.
 
-## 内容依据
+## Requirements and decisions
 
-https://chatgpt.com/share/6af151b4-e5e4-83e8-ae7c-d8ebdfedcfef
+The initial proposal draws on the discussion between Prof. Gorton and the subsequent Epic 2 scheduling proposal.
 
-根据用户补充的 Prof. Gorton 回复截图，已确认：双方在现有 VS Code extension repo 中使用独立分支，共享检测逻辑和既有 labeling UI；我们负责自动触发、异步调度、持久缓存及 AI 调用优化，另一组负责 Manual Agent 和检测模块。
+Prof. Gorton's reply confirms that both teams will work in the existing VS Code extension repository on separate branches and reuse the same detection logic and existing labeling UI. Our team owns automatic triggers, asynchronous scheduling, persistent caching, and AI call optimization. The other team owns the Manual Agent and detection modules.
 
-团队已决定 Manual Agent 不共用 Background Agent 缓存；调度服务是否共享仍待确认。个人分工即将由 Xiaoyu 和 Yezhen 私下讨论确认，不预先指定个人任务。详细接口、3s / 30s 参数及具体构建/PR步骤仍为建议。
+Our team has decided that the Manual Agent will not share the Background Agent's cache. Whether to share the scheduling service remains open. Xiaoyu and Yezhen will confirm individual assignments soon in a private team discussion. Detailed interfaces, the 3s / 30s scheduling values, and specific build and PR procedures for the extension remain proposals.
 
-## 目录说明
+## Project files
 
-- `slides.md`：正文和中文讲稿。
-- `styles/index.css`：配色、布局和动画样式。
-- `slide-bottom.vue`：所有页面（含封面）右下角动态显示当前页 / 总页数；总览和导出使用各自页面的页码。
-- `package.json`：可搬移、重新安装的 Slidev 项目配置。
+| File | Purpose |
+| --- | --- |
+| `slides.md` | Slide content and presenter notes. |
+| `components/SystemDiagram.vue` | SVG architecture diagram. |
+| `styles/index.css` | Colors, layout, code styling, and animation effects. |
+| `slide-bottom.vue` | Current page / total pages in the bottom-right corner of every slide, including the cover, overview, and export. |
+| `package.json` | Slidev dependencies and development, build, and export scripts. |
+| `vite.config.ts` | Windows compatibility handling for dependency paths containing non-ASCII characters. |
 
-当前工作目录为 `E:\Wen\学习\NEU\CS6510\project`。已从 `CS6510-2026\tc-background-agent-slides` 复制源码，原目录保持不变。
-
-本机已提供现有工作区中的依赖副本。若直接运行，使用 `npm run dev`、`npm run build` 和 `npm run export` 即可。在其他电脑上先运行 `npm install`。
-
-
-## 验证结果
-
-- 静态网页构建与 14 页 PDF 导出通过。
-- 14 页已检查内容边界，验收表布局修正后复查通过；保留架构图字号修正和右侧大纲隐藏样式。
-- 重点验证第 2、4、7、10 页的逐步展示。
-- 本机依赖由现有工作区复制，未通过网络重新安装；跨机器安装仍需网络。
+The presentation source was copied from `CS6510-2026/tc-background-agent-slides`; the original directory was preserved. The local environment currently uses a copy of dependencies from the existing workspace. On another machine, run `npm install` first.
