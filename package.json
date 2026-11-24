@@ -1,0 +1,24 @@
+{
+  "name": "tc-background-agent-sprint1-progress",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build --base ./",
+    "export": "slidev export --per-slide --output sprint1-progress.pdf",
+    "postinstall": "node scripts/restore-windows-binding.cjs",
+    "repair:windows": "node scripts/restore-windows-binding.cjs"
+  },
+  "devDependencies": {
+    "@slidev/cli": "51.8.2",
+    "@slidev/theme-default": "0.25.0",
+    "playwright-chromium": "^1.55.0"
+  },
+  "optionalDependencies": {
+    "@oxc-parser/binding-win32-x64-msvc": "0.153.0"
+  },
+  "overrides": {
+    "oxc-parser": "0.153.0"
+  }
+}

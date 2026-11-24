@@ -1,0 +1,21 @@
+Each group should present their progress. Ideally this should
+
+start with a short overview of original aims, 
+descriptiondemonstration of what has been investigatedbuilt so far
+Provide a technical description of the approaches used
+Show the status of team project boards, including completed, in progress and tasks on the backlog. 
+Tasks needed for completion should be clear.
+Identify blocking tasks and tasks that still need investigation in order to solve. What if we can't
+Submission
+
+Submit a pdf version of your slides to canvas
+
+Grading
+
+Progress 7 points
+
+Forward Plans 1 point
+
+Agile management process 1 point
+
+Blocking tasks 1 points
